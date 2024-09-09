@@ -1,7 +1,6 @@
 import React from "react";
 import Home from "./Components/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AllTask from "./Components/AllTask";
 import CreateTask from "./Components/CreateTask";
 import "./index.css";
 import Dashboard from "./Components/Dashboard";

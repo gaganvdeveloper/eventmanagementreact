@@ -30,7 +30,7 @@ const AllEvents = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [events]);
 
   return (
     <div className="grid grid-cols-3  gap-4">
@@ -40,8 +40,9 @@ const AllEvents = () => {
             <div className="float-end text-[12px] bg-violet-600 shadow-inner shadow-white  px-2 rounded-lg">
               <h1>{e.fromDateTime.substring(0, 10)}</h1>
               <h1>
-                {e.fromDateTime.substring(11)}
-                {e.fromDateTime.substring(11, 13) < 12 ? " am" : " pm"}
+                {e.fromDateTime.substring(11, 13) < 12
+                  ? `${e.fromDateTime.substring(11)} am`
+                  : `${e.fromDateTime.substring(11)} pm`}
               </h1>
             </div>
             <h1 className="capitalize tracking-widest font-bold bg-orange-500 w-fit px-1 rounded-lg text-xl ">
@@ -52,7 +53,7 @@ const AllEvents = () => {
                 className=" w-32 h-32 rounded-full hover:scale-105 transition-all object-cover "
                 src={
                   e.profile == null
-                    ? "images\\1d27fe61-0f0d-4f73-a2f0-0cb72fc3927ecloud-2044823_1280.png"
+                    ? "images\\upload.png"
                     : e.profile.path.substring(56)
                 }
                 alt=""
@@ -61,8 +62,8 @@ const AllEvents = () => {
                 <h1>Chief Guest : {e.chiefGuest}</h1>
                 <h1>Organizer : {e.organizer}</h1>
                 <h1>
-                  {e.fromDateTime.substring(11, 16)} to{" "}
-                  {e.toDateTime.substring(11, 16)}{" "}
+                  {e.fromDateTime.substring(11, 16)} to
+                  {e.toDateTime.substring(11, 16)}
                 </h1>
                 <label
                   onClick={() => {
